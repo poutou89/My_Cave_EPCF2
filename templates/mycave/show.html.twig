@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma Cave{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>{{ cellar.nom }}</h1>
+        <p>Cave créée le {{ cellar.createdAt|date('d/m/Y à H:i') }}</p>
+    </div>
+{% endblock %}

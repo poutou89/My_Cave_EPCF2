@@ -1,0 +1,39 @@
+@use "../base/variables" as v;
+
+header {
+    font-family: v.$font-titre;
+    background-color: v.$color-white;
+    nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        .nav-left, .nav-right {
+            width: 40%;
+            background-color: v.$color-secondary;
+            height: 100%;
+            ul {
+                padding: 0;
+                display: flex;
+                justify-content: space-evenly;
+                li {
+                    list-style: v.$style-less;
+                    margin: 1.2vh 0;
+                    a {
+                        text-decoration: v.$style-less;
+                        color: v.$color-white;
+                        font-size: 40px;
+                        
+                    }
+                }
+            }
+        }
+        .nav-left {
+            border-top-right-radius: 30px;
+        }
+        .nav-right {
+            border-top-left-radius: 30px;
+        }
+        
+    }
+}

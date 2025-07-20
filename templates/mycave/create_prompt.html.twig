@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer votre cave{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1>Bienvenue !</h1>
+    <p>Vous n'avez pas encore de cave. Donnez-lui un nom pour commencer :</p>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+
+    <form method="post" action="{{ path('app_create_cave') }}">
+        <label for="name">Nom de votre cave :</label>
+        <input type="text" id="name" name="name" required>
+
+        <button type="submit" class="btn">Créer ma cave</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+@use "../base/variables" as v;
+
+footer {
+    background-color: v.$color-secondary;
+    .container {
+        padding: 4vh 0;
+        .logo {
+            p {
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,88 @@
+@use "../base/variables" as v;
+
+#login {
+    .container {
+        background-color: v.$color-white;
+        width: 50%;
+        margin-top: 4vh;
+        border-radius: 20px;
+        .login {
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h2 {
+                    font-size: 40px;
+                    text-align: center;
+                }
+                label {
+                    font-family: v.$font-text;
+                    font-size: 40px;
+                }
+                input {
+                    width: 80%;
+                    margin-bottom: 4vh;
+                    padding: 2vh;
+                    border: none;
+                    background-color: v.$color-black;
+                    color: v.$color-white;
+                    font-size: 32px;
+                }
+                button {
+                    margin-bottom: 4vh;
+                }
+                .terms {
+                    display: flex;
+                    margin: 0;
+                    font-size: 28px;
+                    white-space: nowrap;
+                    align-items: center;
+                    gap: 8px;
+                    input[type="checkbox"] {
+                    width: 18px;
+                    height: 18px;
+                    cursor: pointer;
+                    transform: translateY(16px);
+                    }
+                }
+                .form-row {
+                    display: flex;
+                    gap: 20px; /* espace entre les deux champs */
+                    justify-content: center;
+                    flex-wrap: wrap; /* si petit écran, passe en colonne */
+                }
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    flex: 1 1 200px;
+                }
+
+                .form-group input {
+                    padding: 10px;
+                    background-color: #333;
+                    color: white;
+                    border: none;
+                    width: 100%;
+                    max-width: 250px;
+                }
+               
+            }
+        }
+        .divise {
+            margin: 0 4vh;
+        }
+        .register {
+            p {
+                text-align: center;
+                font-size: 28px;
+                padding-bottom: 4vh;
+                a {
+                    text-decoration: v.$style-less;
+                }
+            }
+        }
+    }
+}
+

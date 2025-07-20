@@ -1,0 +1,11 @@
+@use "../base/variables" as v;
+
+@font-face {
+    font-family: v.$font-text;
+    src: url('/assets/fonts/SourceSansPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: v.$font-titre;
+    src: url('/assets/fonts/SourceSansPro-Bold.ttf');
+}

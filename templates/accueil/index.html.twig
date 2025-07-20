@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My cave{% endblock %}
+
+{% block main %}
+    <main id="accueil">
+        <div class="container-main">
+            <div class="top">
+                <div class="img">
+                    <img src="{{asset('/images/serveur.png')}}" alt="">
+                </div>
+                <div class="top-text">
+                    <p>Plongez dans l'univers du vin avec notre application de gestion de cave virtuelle. Pensée pour les amateurs et passionnés, elle vous permet de répertorier et organiser vos bouteilles avec élégance et simplicité. Chaque bouteille raconte une histoire, chaque millésime capture un instant. Notre plateforme a été conçue pour offrir un espace personnel où vous pouvez consigner vos trésors viticoles, noter vos impressions et retrouver en un clin d'œil vos précieuses références.</p>
+                    <p class="fond">Recherche avancée : Filtrez et retrouvez rapidement une bouteille parmi votre collection.</p>
+                    <p class="fond">Notes & dégustations : Gardez une trace de vos dégustations et retrouvez facilement vos coups de cœur.</p>
+                    <p class="fond">Organisation intuitive : Triez votre cave selon vos critères : régions, types de vin, occasions spéciales…</p>
+                    <p class="fond">Catalogue personnalisé : Ajoutez vos bouteilles, renseignez les détails (appellation, millésime, cépage, etc.) et classez-les selon vos préférences.</p>
+                    <p>Un espace raffiné pour les passionnés Avec une interface inspirée des salons feutrés et chaleureux, notre application vous plonge dans un cadre élégant où chaque détail a été pensé pour sublimer votre expérience. 🍷 Prenez place, explorez, et laissez-vous guider par votre passion.</p>
+                </div>
+            </div>
+            <div class="divise"></div>
+        </div>
+    </main>
+{% endblock %}
