@@ -6,6 +6,7 @@ use App\Repository\WineCellarRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\User;
 
 #[ORM\Entity(repositoryClass: WineCellarRepository::class)]
 class WineCellar
@@ -64,12 +65,12 @@ class WineCellar
         return $this;
     }
 
-    public function getUser(): ?user
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?user $user): static
+    public function setUser(?User $user): static
     {
         $this->user = $user;
 
@@ -101,5 +102,15 @@ class WineCellar
         }
 
         return $this;
+    }
+    
+        public function addBottle(WineBottle $bottle): static
+    {
+        return $this->addWineBottle($bottle);
+    }
+
+    public function getBottles(): Collection
+    {
+        return $this->getWineBottles();
     }
 }

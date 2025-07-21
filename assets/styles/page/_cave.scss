@@ -1,0 +1,46 @@
+@use "../base/variables" as v;
+
+#cave {
+    .container-main {
+        padding: 0;
+        .cave {
+            display: flex;
+            .left {
+                width: 40%;
+                background-image: url('../../images/etagere_mur.png');
+                height: 105vh;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                position: relative;
+                background-position-y: top;
+                .left-text {
+                    background-color: v.$color-white;
+                    margin: 0 auto;
+                    width: 80%;
+                    text-align: center;
+                    border-radius: 16px;
+                    p {
+                        padding-bottom: 1vh;
+                    }
+                }
+            }
+            .vertical {
+                height: 65.6rem;
+                width: 1rem;
+                background-color: v.$color-secondary;
+                margin-top: -5rem;
+                margin-left: -1.6rem;
+                position: relative;
+                z-index: 20;
+            }
+            .right {
+                width: 50%;
+                position: relative;
+                z-index: 20;
+                background-color: v.$color-white;
+                padding: 0 4vh;
+            }
+        }
+    }
+}

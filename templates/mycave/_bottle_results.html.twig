@@ -1,0 +1,21 @@
+
+{% if bottles is not empty %}
+    <ul>
+        {% for bottle in bottles %}
+            <li>
+                <strong>{{ bottle.name }}</strong> — {{ bottle.year }}
+                <div>
+                    <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}"
+                         alt="Image de {{ bottle.name }}"
+                         style="max-width: 150px; height: auto;">
+                </div>
+                <button class="add-to-cellar-btn"
+                        data-id="{{ bottle.id }}">
+                    Ajouter à ma cave
+                </button>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucune bouteille trouvée avec ces filtres.</p>
+{% endif %}

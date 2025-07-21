@@ -19,6 +19,16 @@
                 </div>
             </div>
             <div class="divise"></div>
+            <h2>Dernières bouteilles ajoutées 🍷</h2>
+                <div class="bottle-row">
+                    {% for bottle in lastBottles %}
+                        <div class="bottle-card">
+                            <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="{{ bottle.name }}">
+                            <p>{{ bottle.name }}</p>
+                            <small>{{ bottle.year }}</small>
+                        </div>
+                    {% endfor %}
+                </div>
         </div>
     </main>
 {% endblock %}

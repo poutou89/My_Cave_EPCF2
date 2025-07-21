@@ -24,9 +24,16 @@ class Grape
     #[ORM\OneToMany(targetEntity: WineBottle::class, mappedBy: 'grape')]
     private Collection $wineBottles;
 
+    /**
+     * @var Collection<int, Country>
+     */
+    #[ORM\ManyToMany(targetEntity: Country::class, inversedBy: 'grapes')]
+    private Collection $countries;
+
     public function __construct()
     {
         $this->wineBottles = new ArrayCollection();
+        $this->countries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -72,6 +79,30 @@ class Grape
                 $wineBottle->setGrape(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Country>
+     */
+    public function getCountries(): Collection
+    {
+        return $this->countries;
+    }
+
+    public function addCountry(Country $country): static
+    {
+        if (!$this->countries->contains($country)) {
+            $this->countries->add($country);
+        }
+
+        return $this;
+    }
+
+    public function removeCountry(Country $country): static
+    {
+        $this->countries->removeElement($country);
 
         return $this;
     }

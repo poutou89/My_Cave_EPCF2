@@ -3,8 +3,64 @@
 {% block title %}Ma Cave{% endblock %}
 
 {% block main %}
-    <div class="container">
-        <h1>{{ cellar.nom }}</h1>
-        <p>Cave créée le {{ cellar.createdAt|date('d/m/Y à H:i') }}</p>
+<main id="cave">
+    <div class="container-main">
+        <div class="cave">
+            <div class="left">
+                <div class="left-text">
+                    <h2>{{ cellar.nom }}</h2>
+                    <p>Cave créée le {{ cellar.createdAt|date('d/m/Y à H:i') }}</p>
+                </div>
+                <div class="shelf">
+                    {% for bottle in cellar.wineBottles %}
+                        <div class="bottle">
+                            <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="{{ bottle.name }}" />
+                            <p>{{ bottle.name }} ({{ bottle.year }})</p>
+                            <form method="POST" action="{{ path('app_bottle_remove', {'id': bottle.id}) }}" style="display:inline">
+                                <button type="submit" class="btn btn-danger">Retirer</button>
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="vertical"></div>
+            <div class="right">
+                <h2>Filtrer les bouteilles</h2>
+
+                <form id="filter-form">
+                    <input type="text" name="name" placeholder="Nom">
+                    <input type="number" name="year" placeholder="Année">
+
+                    <select name="grape_id">
+                        <option value="">-- Cépage --</option>
+                        {% for grape in grapes %}
+                            <option value="{{ grape.id }}">{{ grape.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <select name="country_id">
+                        <option value="">-- Pays --</option>
+                        {% for country in countries %}
+                            <option value="{{ country.id }}">{{ country.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <select name="region_id">
+                        <option value="">-- Région --</option>
+                        {% for region in regions %}
+                            <option value="{{ region.id }}">{{ region.name }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+
+                <hr>
+
+                <div id="results">Chargement...</div>
+                <a href="{{ path('app_bottle_new') }}" class="btn btn-success">➕ Ajouter une bouteille</a>
+                <script src="{{ asset('js/filtre.js') }}" async></script>
+                <script src="{{ asset('js/addBottle.js') }}" async></script>
+            </div>
+        </div>
     </div>
+</main>
 {% endblock %}
