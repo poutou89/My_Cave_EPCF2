@@ -40,6 +40,17 @@
                 z-index: 20;
                 background-color: v.$color-white;
                 padding: 0 4vh;
+                #filter-form {
+                    input, select {
+                        padding: 0.6rem;
+                        border-radius: 4px;
+                        border: 1px solid v.$color-secondary;
+                    }
+                }
+                .divise {
+                    margin: 2vh;
+                }
+
             }
         }
     }

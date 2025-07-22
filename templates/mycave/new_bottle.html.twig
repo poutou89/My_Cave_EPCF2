@@ -1,10 +1,64 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <h2>Ajouter une nouvelle bouteille</h2>
+<main id="newbottle">
+    <div class="container-main">
+        <div class="ajout">
+            <div class="ajout-left">
+                <h2>Ajouter une nouvelle bouteille</h2>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn btn-primary">Enregistrer</button>
-    {{ form_end(form) }}
+                {{ form_start(form) }}
+
+                <div class="form-group">
+                    {{ form_label(form.name, 'Nom de la bouteille') }}
+                    {{ form_widget(form.name) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.year, 'Année') }}
+                    {{ form_widget(form.year) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.description, 'Description') }}
+                    {{ form_widget(form.description) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.grape, 'Cépage') }}
+                    {{ form_widget(form.grape) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.country, 'Pays') }}
+                    {{ form_widget(form.country) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.region, 'Région') }}
+                    {{ form_widget(form.region) }}
+                </div> 
+
+                <div class="form-group">
+                    {{ form_label(form.picture, 'Image de la bouteille') }}
+                    {{ form_widget(form.picture, {'attr': {'onchange': 'previewImage(this)'}}) }}
+                </div>
+
+
+                {{ form_widget(form._token) }}
+
+                <button class="btn btn-primary">Enregistrer</button>
+
+                {{ form_end(form) }}
+            </div>
+            <div class="ajout-right">
+                <div id="preview-container">
+                    <img id="preview-image" src="#" alt="Prévisualisation" style="display: none; max-width: 300px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('js/preview.js') }}" async></script>
+</main>
+    
 {% endblock %}

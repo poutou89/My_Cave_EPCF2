@@ -28,6 +28,16 @@
                     color: v.$color-white;
                     font-size: 32px;
                 }
+                .alert-danger {
+                    color: #ff4d4d;
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    background-color: #ffe6e6;
+                    padding: 10px;
+                    border-radius: 6px;
+                    margin: 10px 0;
+                    border: 1px solid #ffcccc;
+                }
                 button {
                     margin-bottom: 4vh;
                 }

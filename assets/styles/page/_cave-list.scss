@@ -1,0 +1,42 @@
+@use "../base/variables" as v;
+
+#cave-list {
+    .container-main {
+        background-color: v.$color-white;
+        .filtre {
+            .filters {
+                input {
+                    padding: 0.8rem;
+                    margin-right: 0.8rem;
+                    border-radius: 8px;
+                    border: 1px solid v.$color-secondary;
+                }
+                .btn {
+                    padding: 0.7rem;
+                    font-size: 16px;
+                    border-radius: 8px;
+                }
+            }
+        }
+        ul {
+            li {
+                list-style: v.$style-less;
+                background-color: v.$color-primary;
+                padding: 1vh;
+                width: 15%;
+                border-radius: 16px;
+                transition: all 0.4s;
+                a {
+                    text-decoration: none;
+                    color: v.$color-white;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+            li:hover {
+                background-color: v.$color-thirsty;
+            }
+        }
+    }
+}

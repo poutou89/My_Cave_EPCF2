@@ -23,12 +23,20 @@ class RegistrationController extends AbstractController
         EntityManagerInterface $entityManager
     ): Response {
         if ($request->isMethod('POST')) {
-            $user = new User();
+            $email = $request->request->get('email');
 
-            // Récupération des champs du formulaire
+            // 🔍 Vérifie si l'email existe déjà
+            $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+            if ($existingUser) {
+                $this->addFlash('error', 'Cet email est déjà utilisé.');
+                return $this->redirectToRoute('app_register');
+            }
+
+            // Crée un nouvel utilisateur
+            $user = new User();
             $user->setNom($request->request->get('nom'));
             $user->setPrenom($request->request->get('prenom'));
-            $user->setEmail($request->request->get('email'));
+            $user->setEmail($email);
 
             $plainPassword = $request->request->get('plainPassword');
             $hashedPassword = $userPasswordHasher->hashPassword($user, $plainPassword);
@@ -40,11 +48,10 @@ class RegistrationController extends AbstractController
                 return $this->redirectToRoute('app_register');
             }
 
-            // Enregistre l'utilisateur
+            // Enregistre et connecte
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // Connecte l'utilisateur automatiquement
             return $security->login($user, 'form_login', 'main');
         }
 

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block main %}
+<main id="profile">
+    <section class="container-main">
+        <h1>👤 Mon profil</h1>
+
+        <p><strong>Nom :</strong> {{ user.nom }}</p>
+        <p><strong>Prénom :</strong> {{ user.prenom }}</p>
+        <p><strong>Email :</strong> {{ user.email }}</p>
+
+        {% if cave %}
+            <p><strong>Cave créée le :</strong> {{ cave.createdAt|date('d/m/Y à H:i') }}</p>
+            <p><strong>Nombre de bouteilles :</strong> {{ cave.wineBottles|length }}</p>
+        {% else %}
+            <p><em>Vous n'avez pas encore créé de cave.</em></p>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

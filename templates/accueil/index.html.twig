@@ -22,11 +22,14 @@
             <h2>Dernières bouteilles ajoutées 🍷</h2>
                 <div class="bottle-row">
                     {% for bottle in lastBottles %}
-                        <div class="bottle-card">
+                        <a href="#" class="bottle-card">
                             <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="{{ bottle.name }}">
-                            <p>{{ bottle.name }}</p>
-                            <small>{{ bottle.year }}</small>
-                        </div>
+                            <div class="bottle-info">
+                                <h3>{{ bottle.name }}</h3>
+                                <p>Année : {{ bottle.year }}</p>
+                                <p>Dans {{ bottle.cave|length }} cave{{ bottle.cave|length > 1 ? 's' }}</p>
+                            </div>
+                        </a>
                     {% endfor %}
                 </div>
         </div>

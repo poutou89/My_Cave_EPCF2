@@ -22,8 +22,12 @@ header {
                     a {
                         text-decoration: v.$style-less;
                         color: v.$color-white;
-                        font-size: 40px;
-                        
+                        font-size: 40px;    
+                        transition: all 0.3s;
+                    }
+                    a:hover {
+                        color: v.$color-thirsty;
+                        text-decoration: underline;
                     }
                 }
             }
