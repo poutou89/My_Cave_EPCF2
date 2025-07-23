@@ -14,11 +14,13 @@
                 <div class="shelf">
                     {% for bottle in cellar.wineBottles %}
                         <div class="bottle">
-                            <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="{{ bottle.name }}" />
-                            <p>{{ bottle.name }} ({{ bottle.year }})</p>
-                            <form method="POST" action="{{ path('app_bottle_remove', {'id': bottle.id}) }}" style="display:inline">
-                                <button type="submit" class="btn btn-danger">Retirer</button>
-                            </form>
+                            <a href="{{ path('bottle_detail', { id: bottle.id }) }}" class="bottle-card">
+                                <p>{{ bottle.name }} ({{ bottle.year }})</p>
+                                <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="{{ bottle.name }}" />
+                                <form method="POST" action="{{ path('app_bottle_remove', {'id': bottle.id}) }}" style="display:inline">
+                                    <button type="submit" class="btn btn-danger">Retirer</button>
+                                </form>
+                            </a>
                         </div>
                     {% endfor %}
                 </div>

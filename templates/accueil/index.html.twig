@@ -22,7 +22,7 @@
             <h2>Dernières bouteilles ajoutées 🍷</h2>
                 <div class="bottle-row">
                     {% for bottle in lastBottles %}
-                        <a href="#" class="bottle-card">
+                        <a href="{{ path('bottle_detail', { id: bottle.id }) }}" class="bottle-card">
                             <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="{{ bottle.name }}">
                             <div class="bottle-info">
                                 <h3>{{ bottle.name }}</h3>

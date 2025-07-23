@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ bottle.name }} - Détail{% endblock %}
+
+{% block main %}
+<main id="unique">
+    <div class="container-main">
+        <section class="bottle-detail">
+            <h2>{{ bottle.name }}</h2>
+
+            
+                <div class="bottle-image">
+                    {% if bottle.picture %}
+                        <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="Image de {{ bottle.name }}">
+                    {% else %}
+                        <p><em>Pas d'image disponible</em></p>
+                    {% endif %}
+                </div>
+
+                <div class="bottle-info">
+                    <p><strong>Année :</strong> {{ bottle.year }}</p>
+                    <p><strong>Description :</strong> {{ bottle.description }}</p>
+                    <p><strong>Cépage :</strong> {{ bottle.grape.name }}</p>
+                    <p><strong>Pays :</strong> {{ bottle.country.name }}</p>
+                    <p><strong>Région :</strong> {{ bottle.region.name }}</p>
+                    <p><strong>Présente dans :</strong> {{ bottle.cave|length }} cave(s) à vin</p>
+                </div>
+            
+
+            <a href="{{ path('app_accueil') }}" class="btn btn-secondary">← Retour à l'accueil</a>
+        </section>
+    
+    </div>
+</main>
+{% endblock %}

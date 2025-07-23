@@ -1,0 +1,24 @@
+@use "../base/variables" as v;
+
+#unique {
+    .container-main {
+        .bottle-detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                font-size: 30px;
+            }
+            .btn:hover {
+                border: 1px solid black;
+            }
+            .bottle-info {
+                width: 50%;
+                word-wrap: break-word;
+                white-space: pre-line;
+                text-align: center;
+            }
+        }
+    }
+}

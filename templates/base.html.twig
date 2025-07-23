@@ -24,9 +24,15 @@
                             <li><a href="{{ path('app_my_cave') }}">My Cave</a></li>
                         </ul>
                     </div>
+                    
+                        {% if app.user and "ROLE_ADMIN" in app.user.roles %}
+                            <a href="{{ path('admin')}}"><img src="{{asset('/images/logo-large.png')}}" alt=""><span>ADMIN</span></a>
+                        {% else %}
+                    
                     <div class="logo">
                         <img src="{{asset('/images/logo-large.png')}}" alt="">
                     </div>
+                    {% endif %}
                     <div class="nav-right">
                         <ul>
                             <li><a href="{{ path('app_all_caves') }}">Les Caves</a></li>

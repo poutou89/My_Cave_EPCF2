@@ -1,9 +1,8 @@
 
 {% if bottles is not empty %}
-    <ul>
         {% for bottle in bottles %}
-            <li>
-                <strong>{{ bottle.name }}</strong> — {{ bottle.year }}
+            <div class="bottle-card">
+                <strong>{{ bottle.name }}</strong> {{ bottle.year }}
                 <div>
                     <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}"
                          alt="Image de {{ bottle.name }}"
@@ -13,9 +12,8 @@
                         data-id="{{ bottle.id }}">
                     Ajouter à ma cave
                 </button>
-            </li>
+            </div>
         {% endfor %}
-    </ul>
 {% else %}
     <p>Aucune bouteille trouvée avec ces filtres.</p>
 {% endif %}

@@ -8,6 +8,22 @@ header {
         width: 100%;
         justify-content: space-between;
         align-items: center;
+        a {
+            text-decoration: v.$style-less;
+            position: relative;
+            span {
+                position: absolute;
+                left: 35px;
+                right: 0px;
+                top: -10px;
+                bottom: 0px;
+                font-size: 80px;
+                rotate: 12deg;
+                text-shadow: 0 0 3px v.$color-thirsty;
+                -webkit-text-stroke: 0.5px v.$color-thirsty;
+                color: v.$color-secondary;
+            }
+        }
         .nav-left, .nav-right {
             width: 40%;
             background-color: v.$color-secondary;

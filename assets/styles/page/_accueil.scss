@@ -2,6 +2,10 @@
 
 #accueil {
     .container-main {
+        .bottle-row {
+            display: flex;
+            gap: 12px;
+        }
         .top {
             display: flex;
             height: 75vh;
