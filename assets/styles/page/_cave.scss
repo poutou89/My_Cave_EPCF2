@@ -5,71 +5,105 @@
         padding: 0;
         .cave {
             display: flex;
-            .left {
-                width: 40%;
-                background-image: url('../../images/etagere_mur.png');
-                height: 105vh;
-                background-position: center;
-                background-size: cover;
-                background-repeat: no-repeat;
-                position: relative;
-                background-position-y: top;
-                .shelf {
-                    display: flex;
-                    gap: 10px;
-                    margin-left: 8rem;
-                    .bottle {
-                        
-                        a {
-                            width: 150px;
-                            // height: 180px;
+            justify-content: space-between;
+            width: 100%;
+            .left-background {
+                background-color: v.$color-secondary;
+                width: 39.5%;
+                .left {
+                    width: 95%;
+                    background-image: url('../../images/etagere_mur.png');
+                    height: 105vh;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    background-position-y: top;
+                    .shelf {
+                        display: grid;
+                        grid-template-columns: repeat(3, 140px); /* 3 colonnes */
+                        grid-template-rows: repeat(4, auto);
+                        justify-content: center;
+                        width: 80%;
+                        margin: 0 auto;
+                        > .bottle:nth-child(n+13) {
+                            display: none;
+                        }
+                        .bottle {
                             display: flex;
-                            flex-direction: column;
                             justify-content: center;
-                            align-items: center;
-                            margin-top: 4rem;
-                            p {
-                                margin: 0;
-                                color: v.$color-black;
-                            }
-                            img {
-                                height: 80px;
-                                width: 80px;
-                                object-fit: contain;
-                            }
-                            form {
-                                button {
-                                    text-align: center;
-
-                                    font-size: 16px;
-                                    border-radius: 10px;
+                            
+                            height: auto;
+                            
+                            a {
+                                width: 80%;
+                                // height: 180px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                align-items: center;
+                                
+                                p {
+                                    margin: 0;
+                                    color: v.$color-black;
+                                }
+                                img {
+                                    height: 80px;
+                                    width: 80px;
+                                    object-fit: contain;
+                                }
+                                form {
+                                    button {
+                                        text-align: center;
+    
+                                        font-size: 16px;
+                                        border-radius: 10px;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                .left-text {
-                    background-color: v.$color-white;
-                    margin: 0 auto;
-                    width: 80%;
-                    text-align: center;
-                    border-radius: 16px;
-                    p {
-                        padding-bottom: 1vh;
+                    .left-text {
+                        background-color: v.$color-white;
+                        margin: 0 auto;
+                        width: 80%;
+                        text-align: center;
+                        border-radius: 16px;
+                        p {
+                            padding-bottom: 1vh;
+                        }
                     }
+                    
+                    .pagination {
+                        display: flex;
+                        justify-content: center;
+                        gap: 0.5rem;
+                        margin: 1.5rem 0;
+
+                        button {
+                            padding: 0.4rem 0.8rem;
+                            border: 1px solid v.$color-secondary;
+                            background: v.$color-white;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            transition: background 0.2s;
+
+                            &.active {
+                            background: v.$color-secondary;
+                            color: v.$color-white;
+                            }
+
+                            &:disabled {
+                            opacity: 0.5;
+                            cursor: default;
+                            }
+                        }
+                        }
                 }
             }
-            .vertical {
-                height: 65.6rem;
-                width: 1rem;
-                background-color: v.$color-secondary;
-                margin-top: -5rem;
-                margin-left: -1.6rem;
-                position: relative;
-                z-index: 20;
-            }
+            
             .right {
-                width: 50%;
+                width: 55%;
                 position: relative;
                 z-index: 20;
                 background-color: v.$color-white;

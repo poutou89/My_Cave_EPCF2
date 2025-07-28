@@ -1,26 +1,39 @@
-document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('add-to-cellar-btn')) {
-        e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  const resultsContainer = document.getElementById('results');
+  if (!resultsContainer) {
+    console.error('#results introuvable');
+    return;
+  }
 
-        const bottleId = e.target.dataset.id;
+  resultsContainer.addEventListener('click', async e => {
+    const btn = e.target;
+    if (!btn.classList.contains('add-to-cellar-btn')) return;
+    e.preventDefault();
 
-        fetch(`/my-cave/add-bottle/${bottleId}`, {
-    method: 'POST',
-    headers: {
-        'X-Requested-With': 'XMLHttpRequest',
+    const bottleId = btn.dataset.id;
+    if (!bottleId) {
+      console.error('data-id manquant sur le bouton');
+      return;
     }
-})
-.then(res => res.json())
-.then(data => {
-    console.log("Réponse JSON :", data); // ← voir ce que Symfony retourne vraiment
-    if (data.success) {
-        // insère la bouteille dynamiquement
-    } else {
-        alert('Erreur : ' + (data.error || 'Inconnue'));
-    }
-})
-.catch(error => {
-    console.error('Erreur réseau ou serveur', error);
-})
 
-    }});
+    try {
+      const res = await fetch(`/my-cave/add-bottle/${bottleId}`, {
+        method: 'POST',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      });
+      if (!res.ok) throw new Error(`Statut HTTP ${res.status}`);
+      const data = await res.json();
+
+      if (!data.success) {
+        alert('Erreur lors de l’ajout : ' + (data.error || 'Inconnue'));
+        return;
+      }
+
+      // Recharge la page pour afficher la cave à jour
+      window.location.reload();
+    } catch (err) {
+      console.error('Ajout échoué :', err);
+      alert('Échec de l’ajout, veuillez réessayer.');
+    }
+  });
+});

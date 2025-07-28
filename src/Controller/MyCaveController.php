@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MyCaveController extends AbstractController
 {
@@ -34,12 +35,14 @@ class MyCaveController extends AbstractController
             $grapes = $em->getRepository(Grape::class)->findAll();
             $countries = $em->getRepository(Country::class)->findAll();
             $regions = $em->getRepository(Region::class)->findAll();
-
+            $bottles = $cellar->getWineBottles();
             return $this->render('mycave/show.html.twig', [
                 'cellar' => $cellar,
                 'grapes' => $grapes,
                 'countries' => $countries,
                 'regions' => $regions,
+                'bottles'   => $bottles,
+                
             ]);
         }
 
@@ -270,6 +273,7 @@ class MyCaveController extends AbstractController
             'success' => true,
             'bottleName' => $bottle->getName(),
             'bottlePicture' => $bottle->getPicture(),
+            'bottleYear'    => $bottle->getYear(),
         ]);
     }
 

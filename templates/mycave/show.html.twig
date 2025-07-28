@@ -6,26 +6,29 @@
 <main id="cave">
     <div class="container-main">
         <div class="cave">
-            <div class="left">
-                <div class="left-text">
-                    <h2>{{ cellar.nom }}</h2>
-                    <p>Cave créée le {{ cellar.createdAt|date('d/m/Y à H:i') }}</p>
-                </div>
-                <div class="shelf">
-                    {% for bottle in cellar.wineBottles %}
-                        <div class="bottle">
-                            <a href="{{ path('bottle_detail', { id: bottle.id }) }}" class="bottle-card">
-                                <p>{{ bottle.name }} ({{ bottle.year }})</p>
-                                <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="{{ bottle.name }}" />
-                                <form method="POST" action="{{ path('app_bottle_remove', {'id': bottle.id}) }}" style="display:inline">
-                                    <button type="submit" class="btn btn-danger">Retirer</button>
-                                </form>
-                            </a>
-                        </div>
-                    {% endfor %}
+            <div class="left-background">
+                <div class="left">
+                    <div class="left-text">
+                        <h2>{{ cellar.nom }}</h2>
+                        <p>Cave créée le {{ cellar.createdAt|date('d/m/Y à H:i') }}</p>
+                    </div>
+                    <div class="shelf">
+                        {% for bottle in cellar.wineBottles %}
+                            <div class="bottle">
+                                <a href="{{ path('bottle_detail', { id: bottle.id }) }}" class="bottle-card">
+                                    <p>{{ bottle.name }} ({{ bottle.year }})</p>
+                                    <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="{{ bottle.name }}" />
+                                    <form method="POST" action="{{ path('app_bottle_remove', {'id': bottle.id}) }}" style="display:inline">
+                                        <button type="submit" class="btn btn-danger">Retirer</button>
+                                    </form>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="pagination" id="pagination"></div>
                 </div>
             </div>
-            <div class="vertical"></div>
+
             <div class="right">
                 <h2>Filtrer les bouteilles</h2>
 
@@ -62,6 +65,15 @@
                 <a href="{{ path('app_bottle_new') }}" class="btn btn-success">➕ Ajouter une bouteille</a>
                 <script src="{{ asset('js/filtre.js') }}" async></script>
                 <script src="{{ asset('js/addBottle.js') }}" async></script>
+                <script>
+                window.allBottlesFromBackend = window.allBottlesFromBackend = {{ bottles|map(b => {
+                    'id':      b.id,
+                    'name':    b.name,
+                    'year':    b.year,
+                    'imageUrl': asset('uploads/bottles/' ~ b.picture)
+                    })|json_encode|raw }};
+                </script>
+                <script src="{{ asset('js/cave-plus.js') }}" defer></script>
             </div>
         </div>
     </div>
