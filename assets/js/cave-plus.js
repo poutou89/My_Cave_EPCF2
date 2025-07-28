@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Carte .bottle-card
       const card = document.createElement('a');
       card.className = 'bottle-card';
-      card.href = '#';
+      card.href = `/bottle/${b.id}`;
 
       // Titre
       const title = document.createElement('p');

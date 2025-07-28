@@ -36,23 +36,57 @@ header {
                     list-style: v.$style-less;
                     margin: 1.2vh 0;
                     a {
-                        text-decoration: v.$style-less;
+                        font-size: 36px;
+                        position: relative;
                         color: v.$color-white;
-                        font-size: 40px;    
-                        transition: all 0.3s;
-                    }
-                    a:hover {
-                        color: v.$color-thirsty;
-                        text-decoration: underline;
+                        text-decoration: none;
+                        transition: color 0.3s ease;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            height: 2px;
+                            width: 100%;
+                            background: v.$color-primary;
+                            transform: scaleX(0);
+                            transition: transform 0.3s ease;
+                        }
+
+                        &:hover {
+                            color: v.$color-primary;
+                        }
                     }
                 }
             }
         }
         .nav-left {
             border-top-right-radius: 30px;
+            ul {
+                li {
+                    a::after {
+                        left: 0;
+                        transform-origin: left center;
+                    }
+                    a:hover::after {
+                        transform: scaleX(1);
+                    }
+                }
+            }
         }
         .nav-right {
             border-top-left-radius: 30px;
+            ul {
+                li {
+                    a::after {
+                        right: 0;
+                        transform-origin: right center;
+                    }
+                    a:hover::after {
+                        transform: scaleX(1);
+                    }
+                }
+            }
         }
         
     }

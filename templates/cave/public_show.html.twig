@@ -3,28 +3,30 @@
 {% block title %}Cave de {{ cave.user.prenom ~ ' ' ~ cave.user.nom }}{% endblock %}
 
 {% block main %}
-    <section class="public-cave">
-        <h1>🍷 Cave publique de {{ cave.user.prenom }} {{ cave.user.nom }}</h1>
-        <p>📦 Nom de la cave : <strong>{{ cave.nom }}</strong></p>
-        <p>📅 Créée le : {{ cave.createdAt|date('d/m/Y') }}</p>
+    <main id="public-cave">
+        <section class="container-main">
+            <h1>Cave publique de {{ cave.user.prenom }} {{ cave.user.nom }}</h1>
+            <p>Nom de la cave : <strong>{{ cave.nom }}</strong></p>
+            <p>Créée le : {{ cave.createdAt|date('d/m/Y') }}</p>
 
-        {% if cave.wineBottles|length > 0 %}
-            <h2>Contenu de la cave :</h2>
-            <ul class="bottle-list">
-                {% for bottle in cave.wineBottles %}
-                    <li class="bottle-item">
-                        <h3>{{ bottle.name }} ({{ bottle.year }})</h3>
-                        {% if bottle.picture %}
-                            <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="Image de {{ bottle.name }}" style="max-width: 150px; height: auto;">
-                        {% endif %}
-                        <p>{{ bottle.description|default('Aucune description.') }}</p>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p><em>Cette cave ne contient encore aucune bouteille.</em></p>
-        {% endif %}
+            {% if cave.wineBottles|length > 0 %}
+                <h2>Contenu de la cave :</h2>
+                <ul class="bottle-list">
+                    {% for bottle in cave.wineBottles %}
+                        <li class="bottle-item">
+                            <h3>{{ bottle.name }} ({{ bottle.year }})</h3>
+                            {% if bottle.picture %}
+                                <img src="{{ asset('uploads/bottles/' ~ bottle.picture) }}" alt="Image de {{ bottle.name }}" style="max-width: 150px; height: auto;">
+                            {% endif %}
+                            <p>{{ bottle.description|default('Aucune description.') }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p><em>Cette cave ne contient encore aucune bouteille.</em></p>
+            {% endif %}
 
-        <p><a href="{{ path('app_all_caves') }}">← Revenir à la liste des caves</a></p>
-    </section>
+            <p><a href="{{ path('app_all_caves') }}" class="btn">← Revenir à la liste des caves</a></p>
+        </section>
+    </main>
 {% endblock %}

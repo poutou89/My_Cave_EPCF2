@@ -5,6 +5,14 @@
         .bottle-row {
             display: flex;
             gap: 12px;
+            overflow: hidden;
+            width: 100%;
+            a {
+                width: 25%;
+                bottle-card {
+                    width: 100%;
+                }
+            }
         }
         .top {
             display: flex;
@@ -31,9 +39,7 @@
                 text-align: center;
                 padding: 2vh;
             }
-            p {
-                padding: 4vh 0;
-            }
+            
 
             .fond {
                 background-color: v.$color-primary;

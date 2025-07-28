@@ -1,0 +1,176 @@
+@use "../base/variables" as v;
+
+@media screen and (max-width: 1320px) {
+    //Accueil
+
+    #accueil {
+        .container-main {
+            .top {
+                flex-direction: column;
+                height: inherit;
+                .top-text {
+                    width: 95%;
+                }
+                .img {
+                    overflow: inherit;
+                    width: 100%;
+                    height: 40vh;
+                    border-top-left-radius: 16px;
+                    border-top-right-radius: 16px;
+                    img {
+                        border-top-left-radius: 16px;
+                    border-top-right-radius: 16px;
+                    }
+                }
+            }
+            .bottle-row {
+                flex-wrap: wrap;
+                justify-content: center;
+                .bottle {
+                    
+                }
+            }
+        }
+    }
+
+    //cave-list
+    #cave-list {
+        .container-main {
+            ul {
+                list-style: none;
+                display: flex;
+                padding: 0;
+                flex-wrap: wrap;
+                li {
+                    width: 30%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #cave {
+        .container-main {
+            .cave {
+                flex-direction: column;
+                .left-background, .right {
+                    width: 100%;
+                }
+                .left-background {
+                    .left {
+                        width: 100%;
+                        background-position: center;
+                    }
+                }
+                .right {
+                    padding: 0;
+                    margin-bottom: 2rem;
+                    h2, form, #results, .btn {
+                        margin-left: 1rem;
+                        margin-right: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    //header
+
+    header {
+        nav {
+            .nav-right, .nav-left {
+                height: 100%;
+                ul {
+                    li {
+                        a {
+                            font-size: 20px;
+                            margin: 3rem 0;
+                        }
+                    }
+                }
+                }
+            }
+        }
+
+        //public-cave
+    #public-cave {
+        .container-main {
+            ul {
+                li {
+                    width: inherit;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 864px) {
+    footer {
+        .container {
+            flex-direction: column;
+            .logo {
+                margin-bottom: 1rem;
+            }
+            .rgpd {
+                a {
+                    margin: 1rem 0;
+                }
+                
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    //cave-list
+    #cave-list {
+        .container-main {
+            ul {
+                list-style: none;
+                display: flex;
+                padding: 0;
+                flex-wrap: wrap;
+                li {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    //bottle unique
+    #unique {
+        .container-main {
+            .bottle-detail {
+                .bottle-info {
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 670px) {
+    //header
+    header {
+        nav {
+            .nav-right, .nav-left {
+                ul {
+                    li {
+                        a {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
