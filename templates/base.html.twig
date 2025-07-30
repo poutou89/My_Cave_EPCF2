@@ -43,6 +43,11 @@
                             {% endif %}
                         </ul>
                     </div>
+                    <button type="button" class="burger" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </nav>
             </header>
         {% endblock %}
@@ -55,7 +60,7 @@
                         <p>© 2025 My Cave. Tous droits réservés.</p>
                     </div>
                     <div class="rgpd">
-                        <a href="">Politique de confidentialité</a>
+                        <a href="{{ path('app_rgpd') }}">Politique de confidentialité</a>
                     </div>
                     <div class="contact">
                         <h2>Nous contacter :</h2>

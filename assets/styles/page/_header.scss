@@ -1,93 +1,164 @@
 @use "../base/variables" as v;
 
 header {
-    font-family: v.$font-titre;
-    background-color: v.$color-white;
-    nav {
-        display: flex;
+  font-family: v.$font-titre;
+  background-color: v.$color-white;
+
+  nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      text-decoration: v.$style-less;
+      position: relative;
+      span {
+        position: absolute;
+        left: 35px;
+        right: 0px;
+        top: -10px;
+        bottom: 0px;
+        font-size: 80px;
+        rotate: 12deg;
+        text-shadow: 0 0 3px v.$color-thirsty;
+        -webkit-text-stroke: 0.5px v.$color-thirsty;
+        color: v.$color-secondary;
+      }
+    }
+
+    /* Bouton burger (caché en desktop) */
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+      span {
+        display: block;
         width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        a {
-            text-decoration: v.$style-less;
+        height: 0.3rem;
+        background: v.$color-black;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .nav-left,
+    .nav-right {
+      width: 40%;
+      background-color: v.$color-secondary;
+      height: 100%;
+
+      ul {
+        padding: 0;
+        display: flex;
+        justify-content: space-evenly;
+
+        li {
+          list-style: v.$style-less;
+          margin: 1.2vh 0;
+
+          a {
+            font-size: 36px;
             position: relative;
-            span {
-                position: absolute;
-                left: 35px;
-                right: 0px;
-                top: -10px;
-                bottom: 0px;
-                font-size: 80px;
-                rotate: 12deg;
-                text-shadow: 0 0 3px v.$color-thirsty;
-                -webkit-text-stroke: 0.5px v.$color-thirsty;
-                color: v.$color-secondary;
+            color: v.$color-white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              height: 2px;
+              width: 100%;
+              background: v.$color-primary;
+              transform: scaleX(0);
+              transition: transform 0.3s ease;
             }
+
+            &:hover {
+              color: v.$color-primary;
+
+              &::after {
+                transform: scaleX(1);
+              }
+            }
+          }
         }
-        .nav-left, .nav-right {
-            width: 40%;
+      }
+    }
+
+    .nav-left {
+      border-top-right-radius: 30px;
+    }
+
+    .nav-right {
+      border-top-left-radius: 30px;
+    }
+
+    /* MOBILE : menu burger et responsive */
+    @media (max-width: 768px) {
+      /* Masquer menus classiques */
+            justify-content: space-around;
             background-color: v.$color-secondary;
-            height: 100%;
-            ul {
-                padding: 0;
-                display: flex;
-                justify-content: space-evenly;
-                li {
-                    list-style: v.$style-less;
-                    margin: 1.2vh 0;
-                    a {
-                        font-size: 36px;
-                        position: relative;
-                        color: v.$color-white;
-                        text-decoration: none;
-                        transition: color 0.3s ease;
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            bottom: 0;
-                            height: 2px;
-                            width: 100%;
-                            background: v.$color-primary;
-                            transform: scaleX(0);
-                            transition: transform 0.3s ease;
-                        }
-
-                        &:hover {
-                            color: v.$color-primary;
-                        }
-                    }
-                }
-            }
+        span {
+            color: v.$color-white !important;
         }
-        .nav-left {
-            border-top-right-radius: 30px;
-            ul {
-                li {
-                    a::after {
-                        left: 0;
-                        transform-origin: left center;
-                    }
-                    a:hover::after {
-                        transform: scaleX(1);
-                    }
-                }
-            }
-        }
+      .nav-left,
+      .nav-right {
+        display: none;
+      }
+
+      /* Afficher le burger */
+      .burger {
+        display: flex;
+      }
+
+      /* Menu ouvert full-screen */
+      &.open {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: v.$color-secondary;
+        flex-direction: column;
+        padding-top: 4rem;
+        z-index: 1000;
+
+        .nav-left,
         .nav-right {
-            border-top-left-radius: 30px;
-            ul {
-                li {
-                    a::after {
-                        right: 0;
-                        transform-origin: right center;
-                    }
-                    a:hover::after {
-                        transform: scaleX(1);
-                    }
-                }
-            }
+          display: block;
+
+          ul {
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+          }
         }
         
+        /* Animation du burger en croix */
+        .burger {
+          position: absolute;
+          top: 1.2rem;
+          right: 1.2rem;
+
+          span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+          }
+          span:nth-child(2) {
+            opacity: 0;
+          }
+          span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+          }
+        }
+      }
     }
+  }
 }

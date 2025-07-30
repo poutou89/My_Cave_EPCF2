@@ -1,2 +1,83 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Hello RgpdController!{% endblock %}
+
+{% block main %}
+
+    <main id="rgpd">
+        <div class="container-main">
+            <h1>Politique de confidentialité</h1>
+                <p>Dernière mise à jour : 28 juillet 2025</p>
+                <ol> 
+                    <li><p>Responsable du traitement</p> 
+                        <ul>Le site **My Cave EPCF2** est édité par :  
+                            <li>**[Nom de votre société]**</li>  
+                            <li>Adresse : [Votre adresse complète]</li>  
+                            <li>Email : [email protected]</li>
+                            <li>Téléphone : [Votre numéro]</li>
+                        </ul></li> 
+
+                    <li><p>Données personnelles collectées</p>  
+                        <ul>Nous collectons uniquement :
+                            <li>- Les informations que vous nous fournissez en créant un compte (nom, prénom, email, mot de passe).</li>
+                            <li>- Les données indispensables au traitement de vos commandes et à la facturation (adresse de livraison, coordonnées de paiement si nécessaire).</li>  
+                            <li>- Les informations renseignées via notre formulaire de contact.</li>
+                    </ul></li>
+                        <p>Aucune autre donnée (newsletter, cookies tiers, suivi analytique) n'est collectée ou conservée.</p>
+
+                    <li><p>Finalités du traitement</p>  
+                        <ol>Vos données sont utilisées pour :
+                            <li>Gérer votre authentification et votre compte utilisateur.</li>  
+                            <li>Traiter et expédier vos commandes.</li>  
+                            <li>Établir les factures et justificatifs légaux.</li>  
+                            <li>Répondre à vos demandes via notre formulaire de contact.</li>
+                            </ol></li>
+
+                    <li><p>Base légale</p>  
+                        <ul>Les traitements sont fondés sur :  
+                            <li>- L'exécution de votre contrat (article 6 §1 b RGPD) pour la gestion de votre compte et de vos commandes.</li>  
+                            <li>- Le respect d'obligations légales (article 6 §1 c RGPD) pour la conservation des factures.</li>
+                    </ul></li>
+
+                    <li><p>Durée de conservation</p>  
+                        - **Données de facturation** : conservées 10 ans (durée légale).<br>  
+                        - **Données de compte et de contact** : conservées tant que votre compte reste actif, puis supprimées sur simple demande ou inactivité prolongée au-delà de 3 ans.
+                    </li>
+
+                    <li><p>Destinataires des données</p>  </li>
+                        <ul>Vos données sont strictement accessibles :  
+                            <li>- Aux services internes chargés de la gestion des commandes, de la facturation et du support client.  </li>
+                            <li>- À notre expert-comptable, pour la tenue des comptes et la facturation.</li></ul>
+
+                        Aucun prestataire tiers (marketing, publicitaire, analytics) n'a accès à vos données personnelles.
+
+                    <li><p>Cookies techniques</p>  </li>
+                        <ul>Ce site n'utilise que des **cookies strictement nécessaires** au fonctionnement :  
+                            <li>- **PHPSESSID** : identifie votre session de navigation.</li>  
+                            <li>- **_csrf_token** : protège les formulaires contre les attaques CSRF.</li>  </ul>
+
+                        Ces cookies ne collectent aucune donnée à visée publicitaire ni statistique. Ils sont supprimés à la fermeture de votre navigateur.
+
+                    <li><p>Vos droits </p> </li>
+                        <ul>Conformément au RGPD et à la loi « Informatique et Libertés », vous disposez des droits suivants sur vos données :  
+                            <li>- **Accès** : obtenir la copie des données vous concernant.</li>  
+                            <li>- **Rectification** : corriger toute donnée inexacte.</li>  
+                            <li>- **Suppression** : demander la suppression de vos données (droit à l'oubli).</li>  
+                            <li>- **Limitation** : restreindre temporairement le traitement de vos données.</li>  
+                            <li>- **Portabilité** : recevoir vos données dans un format structuré et lisible.</li>  
+                            <li>- **Opposition** : vous opposer à un traitement fondé sur notre intérêt légitime.</li></ul>
+
+                        Pour exercer ces droits, envoyez votre demande à :  
+                        Email : [email protected]  
+                        Objet : “Exercice de mes droits RGPD”  
+
+                    <li><p>Réclamation</p>  </li>
+                    Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir la CNIL : www.cnil.fr/fr/plaintes.
+
+                    ---
+                    </ol>
+                    **[Nom de votre société]** s'''engage au respect de votre vie privée et à la protection de vos données personnelles. Partie de cette politique pourront être mises à jour : pensez à consulter régulièrement cette page.
+        </div>
+    </main>
+
+{% endblock %}

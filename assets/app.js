@@ -11,4 +11,5 @@ import './js/addBottle.js';
 import './js/filtre.js';
 import './js/preview.js';
 import './js/cave-plus.js';
+import './js/menu-burger.js';
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
